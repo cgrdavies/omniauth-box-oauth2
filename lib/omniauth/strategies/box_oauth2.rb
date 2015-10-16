@@ -3,7 +3,7 @@ require 'omniauth-oauth2'
 module OmniAuth
   module Strategies
     class BoxOAuth2 < OmniAuth::Strategies::OAuth2
-      option :name, 'box_oauth2'
+      option :name, 'box'
       option :client_options, {
         :site => 'https://api.box.com/2.0',
         :authorize_url => 'https://api.box.com/oauth2/authorize',
@@ -17,10 +17,6 @@ module OmniAuth
         end)
       }
       option :check_direct_link_support, false
-
-      def callback_url
-        super.sub('http:', 'https:')
-      end
 
       def request_phase
         super
